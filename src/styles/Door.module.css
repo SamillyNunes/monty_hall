@@ -1,13 +1,28 @@
-.door{
+.area, .structure, .door{
     display: flex;
+}
+
+.area{
+    width: var(--area-door-width);
+    height: var(--area-door-height);
+    
+}
+
+.structure{
+    flex-grow: 1; /* pra crescer e ocupar o espaco inteiro (area) */
+    border-left: 5px solid brown;
+    border-top: 5px solid brown;
+    border-right: 5px solid brown;
+}
+
+.door{
+    flex-grow: 1; /* pra crescer e ocupar o espaco inteiro */
     flex-direction: column;
     background-color: chocolate;
     align-items: center;
     padding: 15px;
 
     /* temp */
-    width: var(--area-door-width);
-    height: var(--area-door-height);
 
 }
 
