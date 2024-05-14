@@ -15,6 +15,12 @@ a{
   box-sizing: border-box;
 }
 
+/*  Variaveis no css sao criadas com o -- na frente */
+:root{
+  --area-door-height: 310px;
+  --area-door-width: 200px;
+}
+
 
 /* :root {
   --max-width: 1100px;
