@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <div style={{display: "flex"}} >
-      <Door />
+      <Door  />
+      <Door selected />
       <Door />
     </div>
   );
