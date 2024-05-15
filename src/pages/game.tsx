@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { createDoors, updateDoors } from "../../functions/doors";
 import Door from "@/components/Door";
+import Link from "next/link";
 
 import styles from "../styles/Game.module.css";
 
 export default function Game(){
-    const [doors, setDoors] = useState(createDoors(10,1));
+    const [doors, setDoors] = useState(createDoors(4,1));
 
     function renderDoors(){
         return doors.map( door => (
@@ -23,7 +24,9 @@ export default function Game(){
                 {renderDoors()}
             </div>
             <div className={styles.buttons} >
-                
+                <Link href={"/"} >
+                    <button>Reiniciar Jogo</button>
+                </Link>
             </div>
         </div>
     );
