@@ -1,5 +1,6 @@
-import { MouseEventHandler } from "react";
+
 import DoorModel from "../../model/door_model";
+import Gift from "./Gift"
 import styles from "../styles/Door.module.css";
 
 interface DoorProps{
@@ -36,7 +37,9 @@ export default function Door(props: DoorProps){
     return (
         <div className={styles.area} onClick={changeSelection} >
             <div className={`${styles.structure} ${selected}`} >
-                {door.isOpen ? false : renderDoor()}
+                {door.isClosed ? renderDoor() : (
+                    door.hasGift ? <Gift/> : false
+                )}
                 
             </div>
             
