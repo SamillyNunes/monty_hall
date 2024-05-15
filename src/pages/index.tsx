@@ -2,14 +2,25 @@ import { Inter } from "next/font/google";
 
 import Door from "../components/Door";
 import DoorModel from "../../model/door_model";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createDoors, updateDoors } from "../../functions/doors";
 
 export default function Home() {
-  const [d1, setD1] = useState(new DoorModel(1, false, true));
+  const [doors, setDoors] = useState(createDoors(3,2));
+
+  function renderDoors(){
+    return doors.map( door => (
+      <Door key={door.number} value={door} onChange={newDoor => {
+        const updatedDoorsArray = updateDoors(doors, newDoor);
+        setDoors(updatedDoorsArray);
+      }} />
+
+    ) );
+  }
 
   return (
     <div style={{display: "flex"}} >
-      <Door value={d1} onChange={newDoor => setD1(newDoor)} />
+      {renderDoors()}
     </div>
   );
 }
