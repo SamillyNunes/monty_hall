@@ -1,9 +1,9 @@
 import DoorModel from "../model/door_model";
 
-export function createDoors(qtd: number, selectedIndex: number): DoorModel[]{
+export function createDoors(qtd: number, doorWithGiftIndex: number): DoorModel[]{
     return Array.from({length: qtd}, (_, i) => {
         const number = i+1; //porta 1, 2, 3...
-        const hasGift = number == selectedIndex;
+        const hasGift = number == doorWithGiftIndex;
         return new DoorModel(i+1, hasGift);
     });
 }
