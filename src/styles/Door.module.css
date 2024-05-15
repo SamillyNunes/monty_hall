@@ -18,6 +18,8 @@
     border-top: 5px solid brown;
     border-right: 5px solid brown;
     width: 90%;
+    /* o ultimo numero baixo eh pra falar da transparencia */
+    background-color: #0005;
 }
 
 .door{
