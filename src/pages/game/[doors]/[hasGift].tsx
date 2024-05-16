@@ -11,6 +11,7 @@ export default function Game(){
     const router = useRouter();
 
     const [doors, setDoors] = useState(Array());
+    const [isValid, setIsValid] = useState(false);
 
     useEffect(()=>{
         const doorsParam = +(router?.query.doors ?? 0);
@@ -19,15 +20,27 @@ export default function Game(){
         setDoors(d);
     }, [router?.query]);
 
+    useEffect(()=>{
+        const doorsParam = +(router?.query.doors ?? 0);
+        const hasGiftParam = +(router?.query.hasGift ?? 0);
+
+        const qtdDoorsIsValid = doorsParam >=3 && doorsParam<=20;
+        const hasGiftIsValid = hasGiftParam >=1 && hasGiftParam <= doorsParam;
+
+        setIsValid(qtdDoorsIsValid && hasGiftIsValid);
+    }, [doors]);
+
 
     function renderDoors(){
-        return doors.map( (door: DoorModel) => (
+        return isValid ? doors.map( (door: DoorModel) => (
         <Door key={door.number} value={door} onChange={newDoor => {
             const updatedDoorsArray = updateDoors(doors, newDoor);
             setDoors(updatedDoorsArray);
         }} />
 
-        ) );
+        ) ) : <div>
+            <h2>Valor é inválido!</h2>
+        </div>;
     }
 
     return (
