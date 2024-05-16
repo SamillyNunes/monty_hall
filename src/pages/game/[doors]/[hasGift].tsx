@@ -28,7 +28,7 @@ export default function Game(){
         const hasGiftIsValid = hasGiftParam >=1 && hasGiftParam <= doorsParam;
 
         setIsValid(qtdDoorsIsValid && hasGiftIsValid);
-    }, [doors]);
+    }, [doors, router?.query.doors, router?.query.hasGift]);
 
 
     function renderDoors(){
